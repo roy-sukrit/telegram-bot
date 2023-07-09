@@ -3,7 +3,7 @@ import schedule from 'node-schedule'
 
 import axios from 'axios';
 import {getData} from './fetchData'
-const filePath = process.cwd() + `\\${process.env.FILE_NAME}`;
+const filePath = process.cwd() + `/${process.env.FILE_NAME}`;
 
 const url = `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage?chat_id=@${process.env.GROUP_ID}&text=`
 
