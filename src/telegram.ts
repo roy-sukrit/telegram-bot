@@ -1,9 +1,10 @@
 require('dotenv').config()
-
+import schedule from 'node-schedule'
 
 import axios from 'axios';
 import {getData} from './fetchData'
-const filePath = __dirname + `\\${process.env.FILE_NAME}`;
+const filePath = process.cwd() + `\\${process.env.FILE_NAME}`;
+
 const url = `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage?chat_id=@${process.env.GROUP_ID}&text=`
 
 
@@ -11,7 +12,13 @@ const url = `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage?ch
 async function postMessage() {
     try {
 
+        console.log("Cron Start");
+        
         const data:any = await getData(filePath);
+        console.log(
+            "data",data
+        );
+        
         if(Object.keys(data) && Object.keys(data).length ==2)
         {
 
@@ -41,10 +48,22 @@ async function postMessage() {
             console.log("No Data found :(");
             
         }
-        // console.log("url",url);        
+        // console.log("url",url);  
+        console.log("Cron End");
+      
     } catch (error) {
         console.error(error);
     }
 }
 
-postMessage();
+// setInterval(() => {
+//     // Your cron job logic here
+//   }, 1000 * 60 * 60);
+
+//   setInterval(() => {
+//     // Your cron job logic here
+//   }, 1000 * 60 * 60);
+
+
+const job = schedule.scheduleJob('0 * * * *', postMessage);
+
