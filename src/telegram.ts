@@ -15,9 +15,6 @@ async function postMessage() {
         console.log("Cron Start");
         
         const data:any = await getData(filePath);
-        console.log(
-            "data",data
-        );
         
         if(Object.keys(data) && Object.keys(data).length ==2)
         {
@@ -27,20 +24,15 @@ async function postMessage() {
         &parse_mode=HTML&protect_content=true`
 
         const response0 = await axios.get(url.concat(salutation));
-        console.log(response0);
         const question = `<b>Question => </b><i>${data.Question}</i>&parse_mode=HTML&protect_content=true`
         
         const response1 = await axios.get(url.concat(question));
-        console.log(response1);
 
         const answer = `<b>Answer => </b><i>${data.Answer}</i>&parse_mode=HTML&protect_content=true`;
         const response2 = await axios.get(url.concat(answer));
-        console.log(response2);
-
 
         const ending = `<b>Thanks for the read 👍</b>&parse_mode=HTML&protect_content=true`;
         const response3= await axios.get(url.concat(ending));
-        console.log(response3);
 
         }
 
@@ -64,6 +56,9 @@ async function postMessage() {
 //     // Your cron job logic here
 //   }, 1000 * 60 * 60);
 
+console.log("Waiting for scheduler");
 
-const job = schedule.scheduleJob('0 * * * *', postMessage);
 
+const job = schedule.scheduleJob(`${process.env.CRON_JOB}`, postMessage);
+
+console.log("Scheduler Run Complete");
