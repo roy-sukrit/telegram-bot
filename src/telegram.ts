@@ -46,6 +46,9 @@ async function postMessage() {
     } catch (error) {
         console.error(error);
     }
+
+    console.log("Executed scheduler");
+
 }
 
 // setInterval(() => {
@@ -59,16 +62,16 @@ async function postMessage() {
 console.log("Waiting for scheduler");
 
 
-const millisecondsPerHour = 60 * 60 * 1000;
-const time = parseInt(`${process.env.CRON_JOB}`) * millisecondsPerHour
+// const millisecondsPerHour = 60 * 60 * 1000;
+// const time = parseInt(`${process.env.CRON_JOB}`) * millisecondsPerHour
 
 
-setTimeout(() => {
-    postMessage(); 
-    console.log("Scheduler Run Complete =>",new Date());
-}, time)
+// setTimeout(() => {
+//     postMessage(); 
+//     console.log("Scheduler Run Complete =>",new Date());
+// }, time)
 
 
 
-// const job = schedule.scheduleJob(`${process.env.CRON_JOB}`, postMessage);
+const job = schedule.scheduleJob(`${process.env.CRON_JOB}`, postMessage);
 
