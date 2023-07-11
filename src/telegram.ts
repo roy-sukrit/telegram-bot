@@ -20,19 +20,19 @@ async function postMessage() {
         if (Object.keys(data) && Object.keys(data).length == 2) {
 
             console.log("Data Found Starting Todays Post :)", data);
-            // const salutation = `<b>Namaste🙏Today's Question is => </b>
-            // &parse_mode=HTML&protect_content=true`
+            const salutation = `<b>Namaste🙏Today's Question is => </b>
+            &parse_mode=HTML&protect_content=true`
 
-            // const response0 = await axios.get(url.concat(salutation));
-            // const question = `<b>Question => </b><i>${data.Question}</i>&parse_mode=HTML&protect_content=true`
+            const response0 = await axios.get(url.concat(salutation));
+            const question = `<b>Question => </b><i>${data.Question}</i>&parse_mode=HTML&protect_content=true`
 
-            // const response1 = await axios.get(url.concat(question));
+            const response1 = await axios.get(url.concat(question));
 
-            // const answer = `<b>Answer => </b><i>${data.Answer}</i>&parse_mode=HTML&protect_content=true`;
-            // const response2 = await axios.get(url.concat(answer));
+            const answer = `<b>Answer => </b><i>${data.Answer}</i>&parse_mode=HTML&protect_content=true`;
+            const response2 = await axios.get(url.concat(answer));
 
-            // const ending = `<b>Thanks for the read 👍</b>&parse_mode=HTML&protect_content=true`;
-            // const response3= await axios.get(url.concat(ending));
+            const ending = `<b>Thanks for the read 👍</b>&parse_mode=HTML&protect_content=true`;
+            const response3= await axios.get(url.concat(ending));
 
         }
 
