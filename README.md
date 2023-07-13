@@ -4,16 +4,24 @@ to use the time for reading educational content .
 
 So I used node js to build this bot and utilized the <a href="https://core.telegram.org/bots/api/">Telegram Bot API</a> to post messages.
 
-### Steps to Run
+## Steps to Run
 
-## Install
+### Generate a telegram bot and create a group 
+
+* Go to /botfather in Telegram and register a new bot .
+* Copy your API Token - That is your BOT_TOKEN.
+* Create a new group in telegram , copy the username - That is your GROUP_ID .
+* Mention the time interval in CRON_JOB variable the standard is in hours.
+* Add the file name in the variable - FILE_NAME , make sure to follow name the columms as Question - Answer.
+
+### Install
 
 ```sh
 npm install
 npm run build
 ```
 
-## Usage
+### Usage
 
 ```sh
 npm start
@@ -35,6 +43,10 @@ npm start
 1. Push to the branch (`git push origin add-new-feature`)
 1. Create a new pull request
 
+### Work in Progress.
+* Test Cases .
+* Cron Logic.
+* Welcome message for new users.
 
 
 
