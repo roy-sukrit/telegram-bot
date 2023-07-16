@@ -12,6 +12,7 @@ So I used node js to build this bot and utilized the <a href="https://core.teleg
 * Copy your API Token - That is your BOT_TOKEN.
 * Create a new group in telegram , copy the username - That is your GROUP_ID .
 * Mention the time interval in CRON_JOB variable the standard is in hours.
+* I am using my quora scraper to generate the csv file , <a href="https://github.com/roy-sukrit/Quora_Scrapper">Quora Scraper</a>
 * Add the file name in the variable - FILE_NAME , make sure to follow name the columms as Question - Answer.
 
 ### Install
